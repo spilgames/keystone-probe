@@ -38,5 +38,5 @@ rm -rf $RPM_BUILD_DIR/*
 
 %files
 %defattr(-,root,root)
-/usr/lib/python2.6/site-packages/spil_keystone_auth_plugin/
-/usr/lib/python2.6/site-packages/spil_keystone_auth_plugin-%{version}-py2.6.egg-info
+/usr/lib/python2.6/site-packages/keystone_probe
+/usr/lib/python2.6/site-packages/keystone_probe-%{version}-py2.6.egg-info
