@@ -18,7 +18,7 @@ Requires: python
 BuildRequires: python python-setuptools
 
 %description
-Middleware for authenticating connecting keystone to an external service
+Middleware that sends keystone stats to statsd
 
 %prep
 %setup -n %{name}-%{version}
