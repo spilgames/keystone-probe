@@ -59,7 +59,8 @@ class KeystoneProbe(wsgi.Middleware):
 
         path = environ['PATH_INFO']
         method = environ['REQUEST_METHOD']
-        self.statsd.increment('req.{0}.{1}.{2}'.format(path, method, status_int))
+        # Comment this out for now, generates a lot of excess metrics
+        #self.statsd.increment('req.{0}.{1}.{2}'.format(path, method, status_int))
 
     def process_request(self, environ, start_response):
         def _start_response(status, headers, exc_info=None):
