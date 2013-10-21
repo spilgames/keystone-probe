@@ -16,7 +16,8 @@
 # Include in pipeline after json_body and xml_body, public API only
 
 
-from keystone.common import logging, wsgi
+from keystone.common import wsgi
+from keystone.openstack.common import log as logging
 from statsd import Statsd
 from webob import Request, Response
 
