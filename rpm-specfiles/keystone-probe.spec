@@ -1,7 +1,6 @@
 %define version {{VER}}
 %define release {{SPI}}
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
-%{!?python_shortver: %define python_shortver %(%{__python} -c "import sys; print(str(sys.version_info.major)+\".\"+str(sys.version_info.minor))")}
 
 Summary: Middleware that sends keystone stats so statsd
 Name: keystone-probe
@@ -39,5 +38,10 @@ rm -rf $RPM_BUILD_DIR/*
 
 %files
 %defattr(-,root,root)
-/usr/lib/python%{python_shortver}/site-packages/keystone_probe
-/usr/lib/python%{python_shortver}/site-packages/keystone_probe-%{version}-py%{python_shortver}.egg-info
+%if 0%{?el7}
+/usr/lib/python2.7/site-packages/keystone_probe
+/usr/lib/python2.7/site-packages/keystone_probe-%{version}-py2.7.egg-info
+%else
+/usr/lib/python2.6/site-packages/keystone_probe
+/usr/lib/python2.6/site-packages/keystone_probe-%{version}-py2.6.egg-info
+%endif
